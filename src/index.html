@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover the best city to live in through detailed data and statistics.">
+    <title>Dream City</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900"
+        rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="/src/img/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/src/img/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/src/img/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/src/img/favicon_io/site.webmanifest">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header>
+            <div class="container">
+                <h1 id="title">Find your dream city</h1>
+                <p class="text-center">Enter the name of a city and discover its characteristics and global score</p>
+                <div class="header-image-container">
+                    <img id="header-image" src="/src/img/home.jpg" alt="City image">
+                </div>
+                <div class="input-group">
+                    <input type="text" id="city-input" class="form-control" placeholder="Enter the name of a city...">
+                    <button id="search-btn" class="btn">Search</button>
+                </div>
+
+            </div>
+        </header>
+
+        <section class="citydata">
+            <div id="results">
+                <!-- Il canvas verrà inserito qui dinamicamente -->
+            </div>
+        </section>
+
+        <footer>
+            <small>Powered by <a href="https://developers.teleport.org/api/">Teleport Cities</a></small>
+        </footer>
+    </div>
+</body>
+
+</html>
