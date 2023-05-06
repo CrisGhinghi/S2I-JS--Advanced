@@ -10,20 +10,20 @@ The application consists of a simple textbox that allows the user to enter the n
 Once the user clicks on the search button, the application contacts the Teleport external service APIs to obtain the information to display.<br>
 
 <p align="center">
-  <img src="src/img/screenshot/home.png" alt="Size Limit CLI" width="738">
+  <img src="src/img/screenshots/home.png" alt="Size Limit CLI" width="738">
 </p>
 
 # Results
 After receiving the data from the external service, the application displays information about the categories, description, and city score of the city.
 
 <p align="center">
-  <img src="src/img/screenshot/chart.png" alt="Size Limit CLI" width="738">
+  <img src="src/img/screenshots/chart.png" alt="Size Limit CLI" width="738">
 </p>
 
 Additionally, the image on the top will change based on the search results.
 
 <p align="center">
-  <img src="src/img/screenshot/city.png" alt="Size Limit CLI" width="738">
+  <img src="src/img/screenshots/city.png" alt="Size Limit CLI" width="738">
 </p>
 
 ## Languages
