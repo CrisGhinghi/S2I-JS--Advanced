@@ -34,7 +34,7 @@ export async function displayResults(data) {
                     display: true,
                     text: 'Quality of life by category, mouse over to view details:',
                     font: {
-                        size: 20
+                        size: 22
                     }
                 },
                 legend: {
