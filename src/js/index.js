@@ -1,13 +1,13 @@
-// Importo i file CSS
+// import the CSS files
 import '../css/style.css';
 import '../css/mobile.css';
 
-// Importo l'immagine dell'intestazione della home
+// import the homepage header image
 import homeImage from '../img/home.jpg';
 
-// Importo le funzioni del modulo UI e API
+// import the UI and API module functions
 import { initializeUI } from './ui.js';
 import { performSearch } from './api.js';
 
-// Inizializzo l'interfaccia utente
+// initialize the user interface
 initializeUI(homeImage, performSearch);
