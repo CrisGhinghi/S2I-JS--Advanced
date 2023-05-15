@@ -2,19 +2,19 @@ import axios from 'axios';
 
 import { displayResults } from './chart.js';
 
-// Funzione per recuperare i dati della città e visualizzarli
+// Function to retrieve city data and display it
 export async function performSearch() {
-    // Recupero il valore dell'input della città e rimuovo gli spazi bianchi
+    // retrieve the value of the city input and remove white spaces
     const cityInput = document.getElementById('city-input');
     const cityName = cityInput.value.trim();
 
-    // Controllo se il nome della città è vuoto
+    // check if the city name is empty
     if (cityName.length === 0) {
         alert("Please, enter the name of a city.");
         return;
     }
 
-    // Provo a recuperare i dati della città e a visualizzare i risultati
+    // try to retrieve the city data and display the results
     try {
         const data = await fetchCityData(cityName);
         displayResults(data);
@@ -25,33 +25,33 @@ export async function performSearch() {
     }
 }
 
-// Funzione per recuperare i dati della città utilizzando l'API Teleport
+// Function to retrieve city data using the Teleport API
 async function fetchCityData(cityName) {
-    // Richiesta API per ottenere informazioni sulla città
+    // API request to obtain information about the city
     const response = await axios.get(`https://api.teleport.org/api/cities/?search=${cityName}`);
     const data = response.data;
 
-    // Controllo se la città è stata trovata
+    // check if the city was found
     if (data.count === 0) {
         throw new Error("Città non trovata.");
     }
 
-    // Estraggo l'ID della città e l'URL dell'area urbana
+    // extract the city ID and the urban area URL
     const cityId = data._embedded["city:search-results"][0]._links["city:item"].href;
     const cityResponse = await axios.get(cityId);
     const cityData = cityResponse.data;
 
-    // Recupero i dati del punteggio dell'area urbana
+    // retrieve the urban area score data
     const urbanAreaId = cityData._links["city:urban_area"].href;
     const urbanAreaScoresResponse = await axios.get(`${urbanAreaId}scores/`);
     const urbanAreaScoresData = urbanAreaScoresResponse.data;
 
-     // Recupero l'URL dell'immagine dell'area urbana
+     // retrieve the urban area image URL
     const urbanAreaSlug = cityData._links["city:urban_area"].href.split('/').slice(-2)[0];
     const urbanAreaImagesResponse = await axios.get(`https://api.teleport.org/api/urban_areas/${urbanAreaSlug}/images/`);
     const urbanAreaImagesData = urbanAreaImagesResponse.data;
 
-    // Restituisco i dati della città
+    // return the city data
     return {
         teleport_cityName: data._embedded["city:search-results"][0].matching_full_name,
         teleport_city_score: urbanAreaScoresData.teleport_city_score,
