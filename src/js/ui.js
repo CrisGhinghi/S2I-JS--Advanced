@@ -1,4 +1,4 @@
-// Questo modulo contiene le funzioni per la gestione dell'interfaccia utente
+// This module contains functions for managing the user interface
 export function initializeUI(homeImage, performSearchCallback) {
     // Recupero gli elementi del DOM
     const searchBtn = document.getElementById('search-btn');
@@ -7,37 +7,37 @@ export function initializeUI(homeImage, performSearchCallback) {
     const title = document.getElementById('title');
     const headerImage = document.getElementById('header-image');
 
-    // Imposto l'immagine dell'intestazione
+    // set the header image
     headerImage.src = homeImage;
 
-    // Aggiungo un gestore di eventi al titolo
+    // add an event handler to the title
     title.addEventListener('click', () => {
-        // Ripristino il contenuto di resultsDiv e l'input della città
+        // reset the contents of resultsDiv and the city input
         resultsDiv.innerHTML = '';
         cityInput.value = '';
 
-        // Mostro l'input della città e il pulsante di ricerca
+        // display the city input and search button
         cityInput.style.display = 'inline-block';
         searchBtn.style.display = 'inline-block';
 
-        // Ripristino l'immagine dell'intestazione
+        // reset the header image
         document.getElementById('header-image').src = homeImage;
     });
 
-    // Aggiungo un gestore di eventi al pulsante di ricerca
+    // add an event handler to the search button
     searchBtn.addEventListener('click', () => {
-        // Eseguo la funzione di callback di ricerca
+        // execute the search callback function
         performSearchCallback();
     });
 
-    // Aggiungo un gestore di eventi all'input della città
+    // add an event handler to the city input
     cityInput.addEventListener('keydown', (event) => {
-        // Verifico se è stato premuto il tasto 'Enter'
+        // check if the 'Enter' key was pressed
         if (event.key === 'Enter') {
-            // Impedisco il comportamento predefinito del tasto 'Enter'
+            // prevent the default behavior of the 'Enter' key
             event.preventDefault();
 
-            // Eseguo la funzione di callback di ricerca
+            // execute the search callback function
             performSearchCallback();
         }
     });
